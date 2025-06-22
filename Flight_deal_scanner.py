@@ -12,7 +12,7 @@ load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
 API_SECRET = os.getenv("API_SECRET")
-EMAIL_ADDRESS = "mitchellwodrich@gmail.com"
+EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 PRICE_THRESHOLD = 500
