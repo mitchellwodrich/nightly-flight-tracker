@@ -20,9 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run your script
         run: |
-          python your_script.py
+          python Flight_deal_scanner.py
