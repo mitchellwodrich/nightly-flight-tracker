@@ -1,4 +1,4 @@
-name: Run script nightly
+name: Run Flight Deal Scanner Nightly
 
 on:
   schedule:
@@ -23,6 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run your script
+      - name: Run flight deal scanner
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_SECRET: ${{ secrets.API_SECRET }}
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: |
           python Flight_deal_scanner.py
