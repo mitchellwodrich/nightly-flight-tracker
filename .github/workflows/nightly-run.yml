@@ -1,0 +1,28 @@
+name: Run script nightly
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Runs at 3:00 AM UTC every day
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run your script
+        run: |
+          python your_script.py
